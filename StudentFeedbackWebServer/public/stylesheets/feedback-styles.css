@@ -9,3 +9,15 @@ body {
     font-weight: 400;
 }
 
+table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+thead {
+    font-weight: bold;
+}
+th, td {
+    padding: 5px;
+}
+
