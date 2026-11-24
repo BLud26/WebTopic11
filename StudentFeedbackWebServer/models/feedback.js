@@ -24,8 +24,8 @@ module.exports = (sequelizeDatabase) => {
                 type: DataTypes.BOOLEAN,
                 allowNull: true,
                 get() {
-                        // if the database stores false, return 'no', if it stores true, return 'yes'
-                    if (this.getDataValue()) {
+                    // if the database stores false, return 'no', if it stores true, return 'yes'
+                    if (this.getDataValue('isCurrentStudent')) { // CHANGED: added 'isCurrentStudent'
                         return 'yes'
                     } else {
                         return 'no'
@@ -39,7 +39,7 @@ module.exports = (sequelizeDatabase) => {
                         this.setDataValue('isCurrentStudent', false)
                     }
 
-                    }
+                }
             },
             departments: {
                 type: DataTypes.JSON,
@@ -52,7 +52,10 @@ module.exports = (sequelizeDatabase) => {
         }
     )
 
-    Feedback.sync({ force: false }).then(() => console.log("Create Feedback table"))
+    Feedback.sync({ force: false })
+        .then(() => console.log("Create Feedback table"))
+        // log database problems instead of crashing the whole app
+        .catch(error => console.error("Could not sync Feedback table:", error.message))
 
     return Feedback // index.js needs the model back
 }

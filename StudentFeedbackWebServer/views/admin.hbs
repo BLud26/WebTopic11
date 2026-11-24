@@ -2,33 +2,38 @@
 
 {{#if feedback }}
 
-<table>
-    <thead>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Comments</th>
-        <th>Department(s)</th>
-        <th>Created At</th>
-    </thead>
+    <table>
+        <thead>
+        <tr> <!-- ADDED -->
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comments</th>
+            <th>Current Student?</th> <!-- ADDED -->
+            <th>Department(s)</th>
+            <th>Created At</th>
+            <th>Updated At</th> <!-- ADDED -->
+        </tr> <!-- ADDED -->
+        </thead>
 
-    <tbody>
+        <tbody>
 
-    {{#each feedback }}
-        <tr>
-            <td>{{ this.id }}</td>
-            <td>{{ this.name }}</td>
-            <td>{{ this.email }}</td>
-            <td>{{ this.comments }}</td>
-            <td>{{ this.isCurrentStudent }}</td>
-            <td>{{ this.departments }}</td>
-            <td>{{ this.createdAt }}</td>
-        </tr>
-    {{/each}}
+        {{#each feedback }}
+            <tr>
+                <td>{{ this.id }}</td>
+                <td>{{ this.name }}</td>
+                <td>{{ this.email }}</td>
+                <td>{{ this.comments }}</td>
+                <td>{{ this.isCurrentStudent }}</td>
+                <td>{{ this.departments }}</td>
+                <td>{{ this.createdAt }}</td>
+                <td>{{ this.updatedAt }}</td> <!-- ADDED -->
+            </tr>
+        {{/each}}
 
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
 
 {{else}}
 

@@ -3,10 +3,15 @@
 
 const { Sequelize } = require("sequelize")
 
-const configuration = {
-    storage: 'feedback.sqlite',
-    dialect: 'sqlite'
-}
+const config = require("./config");
+
+// const configuration = {
+//     storage: 'feedback.sqlite',
+//     dialect: 'sqlite'
+// }
+
+const env = process.env.NODE_ENV || "development"
+const configuration = config[env]
 
 const sequelizeDatabase = new Sequelize(configuration)
 

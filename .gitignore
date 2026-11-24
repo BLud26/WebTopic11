@@ -9,5 +9,7 @@
 /dataSources/
 /dataSources.local.xml
 node_modules
-./idea
+.idea
 feedback.sqlite
+.venv
+.env

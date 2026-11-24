@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 
-const indexRouter = require('./routes')
+const indexRouter = require('./routes/index')
 const adminRouter = require('./routes/admin')
 
 const app = express() // Creates the web application server
